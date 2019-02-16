@@ -21,7 +21,7 @@ export class PostCreateComponent implements OnInit {
   user_id: any;
   validateForm: FormGroup;
   image: any;
-
+  data: any;
   constructor(
     private router: Router,
     private postService: PostService,
