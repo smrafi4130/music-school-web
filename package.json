@@ -7,20 +7,23 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --base-href ./",
     "build:prod": "ng build --prod --aot=false --build-optimizer=false --base-href ./",
     "test-build": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --prod --aot --build-optimizer",
     "build:ci": "ng build --prod --base-href ./",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^7.2.4",
+    "@angular/cli": "7.3.1",
     "@angular/common": "^7.2.4",
     "@angular/compiler": "^7.2.4",
+    "@angular/compiler-cli": "^7.2.4",
     "@angular/core": "^7.2.4",
     "@angular/forms": "^7.2.4",
     "@angular/http": "^7.2.4",
@@ -37,6 +40,7 @@
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "echarts": "^4.1.0",
+    "express": "^4.16.4",
     "font-awesome": "^4.7.0",
     "howler": "^2.1.1",
     "igniteui-angular": "^7.1.5",
@@ -50,12 +54,14 @@
     "ngx-popover": "0.0.16",
     "ngx-swiper-wrapper": "^7.2.1",
     "normalize.css": "^7.0.0",
+    "path": "^0.12.7",
     "pell": "^1.0.4",
     "roboto-fontface": "^0.10.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.4.0",
     "sweetalert2": "^7.6.3",
     "tslib": "^1.9.0",
+    "typescript": "~3.1.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
@@ -67,6 +73,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~10.12.24",
     "codelyzer": "~4.5.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
@@ -79,5 +86,9 @@
     "ts-node": "~8.0.2",
     "tslint": "~5.12.1",
     "typescript": "~3.1.1"
+  },
+  "engines": {
+    "node": "8.10.0",
+    "npm": "3.5.2"
   }
 }
