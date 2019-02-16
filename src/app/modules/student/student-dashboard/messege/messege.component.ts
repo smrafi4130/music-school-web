@@ -55,7 +55,7 @@ export class MessegeComponent {
     });
   }
 
-  public refreshValue() {
+  public refreshValue(event) {
     console.log(this.selectedUser);
   }
 

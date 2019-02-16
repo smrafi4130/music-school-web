@@ -75,7 +75,7 @@
                   class="form-control"
                   id="select1"
                   [(ngModel)]="selectedUser"
-                  (change)="refreshValue()"
+                  (change)="refreshValue($event.target.value)"
                   placeholder="Select user"
                 >
                   <option [ngValue]="undefined" disabled selected
