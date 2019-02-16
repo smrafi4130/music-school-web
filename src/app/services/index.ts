@@ -16,9 +16,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 /*....................................................*/
 export { UserService } from './user.service';
 export { AuthService } from './auth.service';
-// export function jwtTokenGetter() {
-//   return ...;
-// }
+export function jwtTokenGetter() {
+  return ...;
+}
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { environment } from '../../environments/environment';
 
