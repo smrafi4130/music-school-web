@@ -1,0 +1,36 @@
+<card cardTitle="All Course">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            <th>Instructor Name</th>
+            <th>Room</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item?.course_type_id }}</td>
+            <td>{{ item?.course_name }}</td>
+            <td>{{ item?.instructor?.user?.user_name }}</td>
+            <td>{{ item?.room }}</td>
+            <td>
+              <button
+                class="btn btn-default"
+                [routerLink]="['/admin-dashboard/course/update', item.id]"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="delete(item.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</card>

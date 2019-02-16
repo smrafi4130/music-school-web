@@ -1,0 +1,31 @@
+<!-- {{ data | json }} -->
+<card cardTitle="Manage Result">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of data">
+        <tr *ngIf="item?.instructor?.user_id == currentUserId">
+          <td>{{ item?.course_type_id }}</td>
+          <td>{{ item?.course_name }}</td>
+          <td>
+            <button
+              class="btn btn-success"
+              [routerLink]="[
+                '/instructor-dashboard/result/result-read',
+                item.id
+              ]"
+            >
+              View Result
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</card>

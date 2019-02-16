@@ -1,0 +1,94 @@
+<!-- {{ postData | json }} -->
+
+<div
+  class="single_price_table_content active text-center wow fadeIn"
+  data-wow-delay="0.2s"
+  *ngFor="let item of postData"
+>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="price_table_text">
+        <img class="image" src="{{ item?.attachment }}" alt="" />
+      </div>
+    </div>
+    <div class="vl"></div>
+    <div class="col-md-6">
+      <div class="table_text_details">
+        <h2>{{ item?.title }}</h2>
+        <br />
+        <h4>{{ item?.description }}</h4>
+        <br />
+        <br />
+
+        <h5>
+          <div class="pull-left">
+            <span style="margin-right: 5px"><i class="fa fa-user-o"></i></span>
+            {{ item.user?.user_name }}
+          </div>
+          <div class="pull-righ" style="text-align: end">
+            <span style="margin-right: 5px">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            {{ item.created_at | date: 'medium' }}
+          </div>
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="table_btn mt-50">
+    <a href="#" class="btn reen-btn">Start</a>
+  </div> -->
+</div>
+
+<!-- <div class="row">
+  <div class="col-md-6" *ngFor="let item of postData; let i = index">
+    <article class="grid_post grid_post_lg text-center">
+      <figure>
+        <div class="grid_image">
+          <img class="img-responsive" src="{{ item?.attachment }}" alt="" />
+        </div>
+        <figcaption>
+          <div class="entry-meta">
+            <span class="entry-date"
+              ><i class="fa fa-calendar-o" aria-hidden="true"></i
+              ><time datetime="2018-01-21T19:00">{{
+                item.created_at | date: 'medium'
+              }}</time></span
+            >
+            <span class="comment-link">
+              <i class="fa fa-user-o" aria-hidden="true">
+                <span style="margin-left: 5px">
+                  {{ item.user?.user_name }}
+                </span></i
+              >
+            </span>
+          </div>
+          <h3 class="grid_post_title">
+            <a href="javascript:void(0);">{{ item.title }}</a>
+          </h3>
+          <p class="description">
+            {{ item.description }}
+          </p>
+          <button class="btn btn-info" (click)="openModal(myModal, item.id)">
+            Read More
+          </button>
+        </figcaption>
+      </figure>
+    </article>
+  </div>
+</div> -->
+
+<!-- <modal #myModal>
+  <modal-header>
+    <h3>{{ currentData?.title }}</h3>
+  </modal-header>
+  <modal-content>
+    <p>
+      {{ currentData?.description }}
+    </p>
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-primary" (click)="closeModal(myModal)">close</button>
+  </modal-footer>
+</modal> -->

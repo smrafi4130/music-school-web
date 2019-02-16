@@ -1,0 +1,33 @@
+<!-- {{ data | json }} -->
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Contact No.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td>{{ item?.student?.id }}</td>
+          <td>{{ item?.student?.user?.first_name }}</td>
+          <td>{{ item?.student?.user?.last_name }}</td>
+          <td>{{ item?.student?.user?.email }}</td>
+          <td>{{ item?.student?.user?.contact_no }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: center">
+      <button
+        [routerLink]="['/instructor-dashboard/course/all-course']"
+        class="btn btn-primary"
+      >
+        Back to course
+      </button>
+    </div>
+  </div>
+</div>

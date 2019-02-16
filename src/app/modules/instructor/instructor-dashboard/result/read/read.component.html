@@ -1,0 +1,41 @@
+<!-- {{ data | json }} -->
+<card cardTitle="Manage Result">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Name</th>
+          <th>Marks</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of data">
+        <tr>
+          <td>{{ item?.student_id }}</td>
+          <td>{{ item?.student?.user?.user_name }}</td>
+          <td>
+            {{ item?.marks }}
+          </td>
+
+          <td>
+            <button
+              class="btn btn-warning"
+              [routerLink]="['/instructor-dashboard/result/update', item.id]"
+            >
+              Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: center">
+      <button
+        class="btn btn-primary"
+        [routerLink]="['/instructor-dashboard/result/result-create']"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+</card>

@@ -1,0 +1,106 @@
+<div class="form_wrapper">
+  <div class="form_container">
+    <div class="title_container">
+      <h2>Welcome to Music School</h2>
+    </div>
+    <div class="row clearfix">
+      <form
+        [formGroup]="validateForm"
+        (ngSubmit)="submitForm($event, validateForm.value)"
+      >
+        <div class="input_field">
+          <span><i aria-hidden="true" class="fa fa-user"></i></span>
+          <input
+            type="text"
+            formControlName="user_name"
+            placeholder="User Name"
+            required
+          />
+        </div>
+        <div
+          *ngIf="
+            validateForm.controls['user_name'].invalid &&
+            (validateForm.controls['user_name'].dirty ||
+              validateForm.controls['user_name'].touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="validateForm.controls['user_name'].errors.required">
+            Username is required.
+          </div>
+        </div>
+
+        <div class="input_field">
+          <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <input
+            type="text"
+            formControlName="email"
+            placeholder="Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            required
+          />
+        </div>
+
+        <div
+          *ngIf="
+            validateForm.controls['email'].errors &&
+            (validateForm.controls['email'].touched ||
+              validateForm.controls['email'].dirty)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="validateForm.controls['email'].errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="validateForm.controls['email'].errors.pattern">
+            Invalid pattern
+          </div>
+        </div>
+
+        <div class="input_field">
+          <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="input_field">
+          <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+          <input
+            type="password"
+            name="password"
+            placeholder="Re-type Password"
+            required
+          />
+        </div>
+
+        <div class="input_field select_option">
+          <select formControlName="access_group_id">
+            <option [ngValue]="undefined" disabled selected>
+              Please select one option
+            </option>
+            <option
+              *ngFor="let option of accessGroupSearchOptions"
+              [label]="option.label"
+              [value]="option.value"
+            >
+            </option>
+          </select>
+          <div class="select_arrow"></div>
+        </div>
+        <input
+          class="button"
+          type="submit"
+          value="Register"
+          [disabled]="!validateForm.valid"
+        />
+      </form>
+      <p>
+        Already Registered?
+        <a [routerLink]="['/auth/login']">Login Now</a>
+      </p>
+    </div>
+  </div>
+</div>

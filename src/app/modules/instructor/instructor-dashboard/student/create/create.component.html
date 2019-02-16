@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col-md-12">
+    <card cardTitle="Create Student">
+      <tabset id="tabs3" theme="justified">
+        <tab-content for="tabs3" tabTitle="Manual Insersion" [active]="true">
+          <div class="col-md-12">
+            <card>
+              <form
+                [formGroup]="validateForm"
+                (ngSubmit)="submitForm($event, validateForm.value)"
+              >
+                <label class="control-label">User Name</label>
+                <input
+                  formControlName="user_name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                />
+                <label class="control-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                  placeholder="Surname"
+                />
+                <label class="control-label">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="confirmPassword"
+                  placeholder="Password"
+                />
+                <label class="control-label">First Name</label>
+                <input
+                  formControlName="first_name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                />
+                <label class="control-label">Last Name</label>
+                <input
+                  formControlName="last_name"
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                />
+                <label class="control-label">Email</label>
+                <input
+                  formControlName="email"
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                />
+                <label class="control-label">Phone</label>
+                <input
+                  formControlName="contact_no"
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                />
+                <label class="control-label">Address</label>
+                <input
+                  formControlName="address"
+                  type="text"
+                  class="form-control"
+                  placeholder="Name"
+                />
+                <label class="control-label">Gender</label>
+
+                <select
+                  name="select"
+                  id="select1"
+                  class="form-control"
+                  formControlName="gender"
+                  placeholder="Select Gender"
+                >
+                  <option
+                    *ngFor="let option of genderSearchOptions"
+                    [ngValue]="option.value"
+                  >
+                    {{ option.label }}
+                  </option>
+                </select>
+                <br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button
+                  type="submit"
+                  class="btn btn-info"
+                  (click)="resetForm($event)"
+                >
+                  Reset
+                </button>
+              </form>
+            </card>
+          </div>
+        </tab-content>
+        <tab-content for="tabs3" tabTitle="Requested">
+          <p>
+            Requested Students
+          </p>
+        </tab-content>
+      </tabset>
+    </card>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<card cardTitle="{{ data?.data.user_name }} Profile">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="profile-wrap animated fadeIn">
+          <div class="info-wrap">
+            <div class="avatar-wrap">
+              <img src="{{ avatarImgSrc }}" alt="avatar" />
+            </div>
+            <span class="user-name">{{ data?.data.user_name }}</span>
+            <span class="user-post">{{ data?.data.email }}</span>
+          </div>
+          <div class="profile-head">
+            <img
+              src="{{ avatarImgSrc }}"
+              alt="profile-head-bg"
+              class="profile-head-bg"
+            />
+          </div>
+          <div class="profile-foot">
+            <!-- <h4>Skills</h4> -->
+            <!-- <div class="skills-wrap">
+                <a href="#" class="skills-tag">interface</a>
+                <a href="#" class="skills-tag">interface</a>
+                <a href="#" class="skills-tag">interface</a>
+                <a href="#" class="skills-tag">interface</a>
+                <a href="#" class="skills-tag">interface</a>
+                <a href="#" class="skills-tag">interface</a>
+                <a href="#" class="skills-tag">interface</a>
+              </div> -->
+            <h4>Social</h4>
+            <ul class="contact-way-item">
+              <li class="contact-way-list">
+                <a href="#" class="info-icon fa fa-wechat"></a>
+              </li>
+              <li class="contact-way-list">
+                <a href="#" class="info-icon fa fa-weibo"></a>
+              </li>
+              <li class="contact-way-list">
+                <a href="#" class="info-icon fa fa-facebook"></a>
+              </li>
+              <li class="contact-way-list">
+                <a href="#" class="info-icon fa fa-github"></a>
+              </li>
+              <li class="contact-way-list">
+                <a href="#" class="info-icon fa fa-envelope"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row card card-block">
+        <form
+          [formGroup]="validateForm"
+          (ngSubmit)="submitForm($event, validateForm.value)"
+        >
+          <div class="col-md-6 form-group">
+            <label class="control-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="first_name"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="control-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="last_name"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="control-label">Email</label>
+            <input type="text" class="form-control" formControlName="email" />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="control-label">Address</label>
+            <input type="text" class="form-control" formControlName="address" />
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label class="control-label">Contact No.</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="contact_no"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="control-label">Gender</label>
+            <input type="text" class="form-control" formControlName="gender" />
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">
+              Update Profile
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</card>

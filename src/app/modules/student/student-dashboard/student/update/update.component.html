@@ -1,0 +1,70 @@
+<div class="pull-right">
+  <button class="btn btn-info" [routerLink]="['/pages/student/all-student']">
+    List
+  </button>
+</div>
+<div class="col-md-12">
+  <card cardTitle="Edit Instructor">
+    <form
+      [formGroup]="validateForm"
+      (ngSubmit)="submitForm($event, validateForm.value)"
+    >
+      <label class="control-label">First Name</label>
+      <input
+        formControlName="first_name"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+      <label class="control-label">Last Name</label>
+      <input
+        formControlName="last_name"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+      <label class="control-label">Email</label>
+      <input
+        formControlName="email"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+      <label class="control-label">Phone</label>
+      <input
+        formControlName="contact_no"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+      <label class="control-label">Address</label>
+      <input
+        formControlName="address"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+      <label class="control-label">Gender</label>
+
+      <select
+        name="select"
+        id="select1"
+        class="form-control"
+        formControlName="gender"
+        placeholder="Select Gender"
+      >
+        <option
+          *ngFor="let option of genderSearchOptions"
+          [ngValue]="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </select>
+      <br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-danger" (click)="resetForm($event)">
+        Reset
+      </button>
+    </form>
+  </card>
+</div>

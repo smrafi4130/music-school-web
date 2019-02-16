@@ -1,0 +1,51 @@
+<div class="col-md-12">
+  <card cardTitle="Compose Post">
+    <form
+      [formGroup]="validateForm"
+      (ngSubmit)="submitForm($event, validateForm.value)"
+    >
+      <label class="control-label">Post Title</label>
+      <input
+        formControlName="post_title"
+        type="text"
+        class="form-control"
+        placeholder="Title"
+      />
+      <br />
+      <label class="control-label">Post Description</label>
+      <textarea
+        formControlName="post_description"
+        type="text"
+        class="form-control"
+        placeholder="Description"
+      >
+      </textarea>
+
+      <br />
+      <label class="control-label">Attachment</label>
+      <!-- <input
+        formControlName="attachment"
+        type="text"
+        class="form-control"
+        placeholder="Attachment"
+      /> -->
+      <!-- <image-upload
+        url="http://mockbin.org/request"
+        [uploadedFiles]="images"
+      ></image-upload> -->
+      <image-upload
+        [max]="1"
+        (removed)="onRemoved($event)"
+        [beforeUpload]="onBeforeUpload"
+        buttonCaption="upload a image"
+        [extensions]="['jpg', 'jpeg', 'png', 'gif', 'pdf']"
+        clearButtonCaption="X"
+      ></image-upload>
+      <br />
+      <div style="text-align: center">
+        <button type="submit" class="btn btn-success">Post</button>
+        <button class="btn btn-warning">Discard</button>
+      </div>
+    </form>
+  </card>
+</div>

@@ -1,0 +1,25 @@
+<!-- {{ data | json }} -->
+<card cardTitle="My Course">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course ID</th>
+          <th>Course Name</th>
+          <th>Instructor Name</th>
+          <th>Room</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item?.course?.course_type_id }}</td>
+          <td>{{ item?.course?.course_name }}</td>
+          <td>{{ item?.course?.instructor?.user?.user_name }}</td>
+          <td>{{ item?.course?.room }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</card>

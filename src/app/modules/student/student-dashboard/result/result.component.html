@@ -1,0 +1,21 @@
+<!-- {{ data | json }} -->
+<card cardTitle="My Result">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course Name</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of data">
+        <tr *ngIf="item?.student?.user_id == currentUserId">
+          <td>{{ item?.course?.course_type_id }}</td>
+          <td>{{ item?.course?.course_name }}</td>
+          <td>{{ item?.marks }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</card>

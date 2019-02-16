@@ -1,0 +1,56 @@
+<div class="col-md-12">
+  <card cardTitle="Update Course">
+    <form
+      [formGroup]="validateForm"
+      (ngSubmit)="submitForm($event, validateForm.value)"
+    >
+      <label class="control-label">Course Name</label>
+      <input
+        formControlName="course_name"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+
+      <label class="control-label">Course ID</label>
+      <input
+        formControlName="course_type_id"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+      <label class="control-label">Instructor</label>
+      <select
+        formControlName="instructor_id"
+        name="select"
+        id="select1"
+        class="form-control"
+        placeholder="Select Gender"
+        >>
+        <option
+          *ngFor="let option of instructorSearchOptions"
+          [ngValue]="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </select>
+      <br />
+      <label class="control-label">Room No.</label>
+      <input
+        formControlName="room"
+        type="text"
+        class="form-control"
+        placeholder="Name"
+      />
+
+      <br />
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button
+        class="btn btn-danger"
+        [routerLink]="['/admin-dashboard/course/all-course']"
+      >
+        Cancel
+      </button>
+    </form>
+  </card>
+</div>

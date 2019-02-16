@@ -1,0 +1,41 @@
+<!-- <button class="config-switch" (click)="configToggle()">
+  <i class="fa fa-tasks" *ngIf="!isConfigToggle"></i>
+  <i class="fa fa-chevron-right" *ngIf="isConfigToggle"></i>
+</button> -->
+<div class="config-switch avatar">
+  <button (click)="configToggle()">
+    <img src="../../../../../../assets/images/avatar.png" alt="avatar" />
+  </button>
+</div>
+<div
+  class="right-config-wrap"
+  [ngClass]="{ 'right-config-wrap-on': isConfigToggle }"
+>
+  <ul class="config-content">
+    <li class="config-list">
+      <span>
+        <a
+          [routerLink]="['/instructor-dashboard/profile']"
+          (click)="configToggle()"
+          >Profile
+        </a>
+      </span>
+    </li>
+    <li class="config-list">
+      <span>
+        <a
+          [routerLink]="['/instructor-dashboard/password']"
+          (click)="configToggle()"
+          >Change Password
+        </a>
+      </span>
+    </li>
+    <li class="config-list" (click)="logOut()">
+      <span>
+        <a href="">
+          Log Out
+        </a>
+      </span>
+    </li>
+  </ul>
+</div>

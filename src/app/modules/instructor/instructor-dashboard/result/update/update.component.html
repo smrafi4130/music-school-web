@@ -1,0 +1,17 @@
+<!-- {{ data | json }} -->
+<card cardTitle="Edit Result">
+  <div class="col-md-6" *ngFor="let item of data">
+    <label>Mark : </label>
+    <input type="text" value="{{ item?.marks }}" [formControl]="marks" />
+    <button class="btn btn-success" (click)="save()">Save</button>
+    <button
+      class="btn btn-warning"
+      [routerLink]="[
+        '/instructor-dashboard/result/result-read',
+        item?.course_id
+      ]"
+    >
+      Discard
+    </button>
+  </div>
+</card>

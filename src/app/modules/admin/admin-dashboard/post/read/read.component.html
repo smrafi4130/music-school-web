@@ -1,0 +1,44 @@
+<card cardTitle="Manage Post">
+  <div class="row">
+    <div
+      class="col-md-10 col-centered
+      "
+    >
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Post ID</th>
+            <th>Post Title</th>
+            <th>Post Description</th>
+            <th>User</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of data; let i = index">
+          <tr *ngIf="item.user.access_group_id != 1">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item?.title }}</td>
+            <td>
+              <p class="description">
+                {{ item?.description }}
+              </p>
+            </td>
+            <td *ngIf="item.user.access_group_id == 2">Instructor</td>
+            <td *ngIf="item.user.access_group_id == 3">Student</td>
+            <td>
+              <button
+                class="btn btn-default"
+                [routerLink]="['/admin-dashboard/post/update', item.id]"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="delete(item.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</card>

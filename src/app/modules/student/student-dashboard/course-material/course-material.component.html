@@ -1,0 +1,49 @@
+<card cardTitle="Course Material">
+  <div class="row">
+    <div class="col-md-8">
+      <select
+        name="select"
+        class="form-control"
+        id="select1"
+        [(ngModel)]="selectedCourse"
+        (change)="refreshValue($event.target.value)"
+        placeholder="Select Course"
+      >
+        <option [ngValue]="undefined" disabled selected>Select Course</option>
+        <option *ngFor="let item of items" [ngValue]="item">
+          {{ item }}
+        </option>
+      </select>
+      <br />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-striped" *ngIf="material">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <!-- <th>Course Name</th> -->
+            <th>Material</th>
+            <th>Uploaded On</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of material; let i = index">
+            <td>{{ i + 1 }}</td>
+            <!-- <td>{{ item?.course_name }}</td> -->
+            <td>{{ item?.material }}</td>
+            <td>{{ item?.created_at | date: 'medium' }}</td>
+            <td>
+              <button class="btn btn-success">Download</button>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- <app-file-upload></app-file-upload> -->
+</card>

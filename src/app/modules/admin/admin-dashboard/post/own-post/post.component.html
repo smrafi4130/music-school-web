@@ -1,0 +1,38 @@
+<card cardTitle="My Post">
+  <div class="row">
+    <div class="col-md-10 col-centered">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Post ID</th>
+            <th>Post Title</th>
+            <th>Post Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item?.title }}</td>
+            <td>
+              <p class="description">
+                {{ item.description }}
+              </p>
+            </td>
+            <td>
+              <button
+                class="btn btn-default"
+                [routerLink]="['/admin-dashboard/post/update', item.id]"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="delete(item.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</card>

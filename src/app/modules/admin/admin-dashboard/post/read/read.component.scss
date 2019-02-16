@@ -1,0 +1,11 @@
+.description {
+  white-space: nowrap !important;
+  width: 400px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}

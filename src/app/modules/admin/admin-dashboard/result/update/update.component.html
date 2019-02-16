@@ -1,0 +1,16 @@
+<!-- {{ data | json }} -->
+<card cardTitle="Edit Result">
+  <div class="col-md-6">
+    <label>Mark : </label>
+    <input type="text" value="{{ data?.marks }}" [formControl]="marks" />
+    <button class="btn btn-success" (click)="save(data?.course_id)">
+      Save
+    </button>
+    <button
+      class="btn btn-warning"
+      [routerLink]="['/admin-dashboard/result/result-read', data?.course_id]"
+    >
+      Discard
+    </button>
+  </div>
+</card>

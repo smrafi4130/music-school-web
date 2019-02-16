@@ -1,0 +1,65 @@
+<div class="pages-top">
+  <div class="avatar-wrap">
+    <div class="user-info-wrap">
+      <span class="user-name" title="{{ userName }}">
+        <h3>
+          <img
+            class="logo"
+            src="./../../../../../../assets/images/af8ec2cf-0ec9-4482-9573-68fcd6362ebf.png"
+            alt=""
+          />Music School
+        </h3></span
+      >
+    </div>
+  </div>
+
+  <div class="collapse-menu" (click)="_sidebarToggle()">
+    <!-- <i class="fa fa-navicon fa-fw" [ngClass]="{'toggle-on':sidebarToggle,'toggle-off':!sidebarToggle}"></i> -->
+    <i class="fa fa-dedent fa-fw" *ngIf="sidebarToggle"></i>
+    <i class="fa fa-indent fa-fw" *ngIf="!sidebarToggle"></i>
+  </div>
+
+  <div class="msg-tips-wrap" *ngFor="let item of data">
+    <div
+      class="msg-entrance ring"
+      [popover]="myPopover"
+      (click)="clickPopover()"
+    >
+      <i class="fa fa-bell"></i>
+      <span class="badge" *ngIf="item.value"> </span>
+
+      <popover-content
+        class="fixed_header"
+        #myPopover
+        [animation]="true"
+        [closeOnClickOutside]="true"
+      >
+        <div *ngFor="let item of data">
+          <table class="table table-hover" *ngIf="item.status">
+            <tbody>
+              <tr id="foo" style="color: #C21F39; cursor: pointer">
+                {{
+                  item.notification
+                }}
+              </tr>
+            </tbody>
+          </table>
+          <!-- <b>Very</b> <span style="color: #C21F39">Dynamic</span>
+      <span style="color: #00b3ee">Reusable</span>
+      <b
+        ><i><span style="color: #ffc520">Popover With</span></i></b
+      >
+      <small>Html support</small>. -->
+        </div>
+      </popover-content>
+    </div>
+
+    <!-- <button [popover]="myPopover">
+      element on which this popover is applied.
+    </button> -->
+
+    <!-- <span class="fa fa-envelope fa-fw"></span>
+      <span class="badge" *ngIf="tip.email"></span> -->
+    <h4>Welcome {{ currentUser?.user_name }}</h4>
+  </div>
+</div>

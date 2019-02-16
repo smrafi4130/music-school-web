@@ -1,0 +1,114 @@
+<!-- {{ items | json }} -->
+<div class="row">
+  <div class="col-md-12">
+    <card cardTitle="Messege">
+      <tabset id="tabs3" theme="justified">
+        <tab-content for="tabs3" tabTitle="Inbox" [active]="true">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>From</th>
+                <th>Message</th>
+                <!-- <th>Action</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of receivedMessage; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item?.sender_id }}</td>
+                <td>{{ item?.message }}</td>
+                <!-- <td>
+                          <button
+                            class="btn btn-default"
+                            [routerLink]="['/admin-dashboard/course/update', item.id]"
+                          >
+                            Edit
+                          </button>
+                          <button class="btn btn-danger" (click)="delete(item.id)">
+                            Delete
+                          </button>
+                        </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </tab-content>
+        <tab-content for="tabs3" tabTitle="Sent">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>To</th>
+                <th>Message</th>
+                <!-- <th>Action</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of sentMessage; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item?.receiver_id }}</td>
+                <td>{{ item?.message }}</td>
+                <!-- <td>
+                      <button
+                        class="btn btn-default"
+                        [routerLink]="['/admin-dashboard/course/update', item.id]"
+                      >
+                        Edit
+                      </button>
+                      <button class="btn btn-danger" (click)="delete(item.id)">
+                        Delete
+                      </button>
+                    </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </tab-content>
+        <tab-content for="tabs3" tabTitle="New">
+          <card cardTitle="Compose Messege">
+            <div class="row">
+              <div class="col-md-2">
+                <h4>To :</h4>
+              </div>
+              <div class="col-md-6">
+                <select
+                  name="select"
+                  class="form-control"
+                  id="select1"
+                  [(ngModel)]="selectedUser"
+                  (change)="refreshValue($event.target.value)"
+                  placeholder="Select user"
+                >
+                  <option [ngValue]="undefined" disabled selected
+                    >Select user</option
+                  >
+                  <option *ngFor="let item of items" [ngValue]="item.value">
+                    {{ item.label }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <h4>Message :</h4>
+              </div>
+              <div class="col-md-8">
+                <textarea
+                  [formControl]="message"
+                  name=""
+                  id=""
+                  cols="70"
+                  rows="5"
+                ></textarea>
+              </div>
+            </div>
+            <br />
+            <div style="text-align: center;margin-left: -160px">
+              <button class="btn btn-success" (click)="send()">Send</button>
+              <button class="btn btn-warning">Cancel</button>
+            </div>
+          </card>
+        </tab-content>
+      </tabset>
+    </card>
+  </div>
+</div>
