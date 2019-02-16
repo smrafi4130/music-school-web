@@ -16,9 +16,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 /*....................................................*/
 export { UserService } from './user.service';
 export { AuthService } from './auth.service';
-// export function jwtTokenGetter() {
-//   return ...;
-// }
+export function jwtTokenGetter() {
+  return localStorage.getItem('token');
+}
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { environment } from '../../environments/environment';
 
@@ -30,13 +30,9 @@ import { environment } from '../../environments/environment';
     //     tokenGetter: jwtTokenGetter
     //   }
     // })
-
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return localStorage.getItem('token');
-        },
-        whitelistedDomains: environment.whitelist
+        tokenGetter: jwtTokenGetter
       }
     })
   ],
